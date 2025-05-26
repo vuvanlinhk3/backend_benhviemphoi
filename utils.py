@@ -4,7 +4,7 @@ from tensorflow.keras.preprocessing import image
 import os
 import datetime
 
-model = load_model("densenet121_pneumonia_model.h5")
+model = load_model("final_densenet121_pneumonia_model.keras")
 
 def analyze_image(image_path):
     img = image.load_img(image_path, target_size=(224, 224))
