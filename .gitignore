@@ -1,0 +1,40 @@
+# Ignore Python virtual environment
+.venv/
+venv/
+
+# Ignore PyCharm project settings
+.idea/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings (nếu dùng VSCode)
+.vscode/
+
+# Environment variables
+.env
+.env.*
+
+# MacOS system files
+.DS_Store
+
+# Test results
+*.out
+*.pytest_cache/
+
+# Model files / weights (tuỳ chọn)
+*.h5
+*.ckpt
+*.tflite
+
+# Optional: Ignore dataset folders (nếu dữ liệu lớn không muốn push lên)
+data/
+datasets/
