@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
@@ -14,6 +14,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Gọi init_db() khi app khởi tạo
 init_db()
+
+@app.route('/uploads/<filename>')
+def serve_uploads(filename):
+    return send_from_directory(UPLOAD_FOLDER, filename)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -41,8 +45,8 @@ def history():
     for row in rows:
         analyses.append({
             "id": row[0],
-            "image_path": row[1],
-            "heatmap_path": row[2],
+            "image_path": row[1].replace('\\', '/'),
+            "heatmap_path": row[2].replace('\\', '/'),
             "result": row[3],
             "pneumonia_prob": row[4],
             "normal_prob": row[5],
